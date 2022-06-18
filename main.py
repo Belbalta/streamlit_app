@@ -147,12 +147,13 @@ st.markdown(f"Periodo de muestreo: desde  {fecha_i} hasta {fecha_f}")
 st.subheader("Data del monitoreo de contaminates del distrito seleccionado") 
 st.dataframe(cont_distrito)
 
-st.subheader("Gráfica interactiva", selec_ditrit)
+st.subheader("Gráficos interactivos")
 st.line_chart(cont_distrito)
 
-df_sel=data_by_year[data_by_year['ESTACION'].isin([selec_ditrit])]
+sel_year=st.selectbox('Año', list(reversed(range(2010,2021))))
+data_ano=load_data(str(sel_year))
+df_sel=data_ano[data_ano['ESTACION'].isin([selec_ditrit])]
 
-st.header('Gráfico de líneas')
 datos=df_sel.groupby(['MES']).agg({"PM 10": 'mean', "PM 2.5": 'mean', "SO2": 'mean', "NO2": 'mean', "O3": 'mean', "CO": 'mean'})
 #datos.reset_index(inplace=True)
 #c=alt.Chart(datos, title='DISTRITO:'+" "+' '.join(selected_district)).mark_line().encode(x='MES', y='ppm:Q')
