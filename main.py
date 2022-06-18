@@ -119,7 +119,7 @@ df = download_data()
 		
 lsta_conta=['PM 10', 'PM 2.5', 'SO2', 'NO2', 'O3', 'CO']
 distrits_names = pd.unique(df["ESTACION"])
-selec_ditrit = st.sidebar.selectbox('Evaluación de contaminates por Distrito', distrits_names)
+selec_ditrit = st.sidebar.selectbox('Evaluación de contaminates por distrito', distrits_names)
 
 #def serie_temp (selec_ditrit,df_n):
 
@@ -150,7 +150,7 @@ st.dataframe(cont_distrito)
 st.subheader("Gráficos interactivos")
 st.line_chart(cont_distrito)
 
-sel_year=st.selectbox('Año', list(reversed(range(2010,2021))))
+sel_year=st.selectbox('Evaluación de contaminantes por año', list(reversed(range(2010,2021))))
 data_ano=load_data(str(sel_year))
 df_sel=data_ano[data_ano['ESTACION'].isin([selec_ditrit])]
 
