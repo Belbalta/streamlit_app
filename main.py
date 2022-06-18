@@ -121,9 +121,9 @@ lsta_conta=['PM 10', 'PM 2.5', 'SO2', 'NO2', 'O3', 'CO']
 distrits_names = pd.unique(df["ESTACION"])
 
 st.header('Evaluación de contaminates por distrito')
+selec_ditrit = st.selectbox('Evaluación de contaminates por distrito', distrits_names)
 st.subheader("Distrito seleccionado:")
 st.subheader(str(selec_ditrit))
-selec_ditrit = st.selectbox('Evaluación de contaminates por distrito', distrits_names)
 
 #def serie_temp (selec_ditrit,df_n):
 
