@@ -119,6 +119,10 @@ df = download_data()
 		
 lsta_conta=['PM 10', 'PM 2.5', 'SO2', 'NO2', 'O3', 'CO']
 distrits_names = pd.unique(df["ESTACION"])
+
+st.header('Evaluación de contaminates por distrito')
+st.subheader("Distrito seleccionado:")
+st.subheader(str(selec_ditrit))
 selec_ditrit = st.selectbox('Evaluación de contaminates por distrito', distrits_names)
 
 #def serie_temp (selec_ditrit,df_n):
@@ -140,10 +144,7 @@ cont_distrito = distrito.iloc[:,6:].set_index(index)
 fecha_i = index[0]
 fecha_f = index[-1]
 
-st.header('Evaluación de contaminates por distrito')
-st.subheader("Distrito seleccionado:")
-st.subheader(str(selec_ditrit))
-st.markdown(f"Periodo de muestreo: desde  {fecha_i} hasta {fecha_f}") 
+st.markdown(f"Periodo de muestreo: desde {fecha_i} hasta {fecha_f}") 
 st.subheader("Data del monitoreo de contaminates del distrito seleccionado") 
 st.dataframe(cont_distrito)
 
