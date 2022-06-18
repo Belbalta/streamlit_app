@@ -187,7 +187,7 @@ def createTooltip(base, cont_select):
 	selectors = (alt.Chart(data).mark_point().encode(x="MES:T",opacity=alt.value(0)).add_selection(nearest))
 	points = base.mark_point(size=5, dy=-10).encode(opacity=alt.condition(nearest, alt.value(1), alt.value(0))).transform_filter(cont_select)
 
-	tooltip_text = base.mark_text(align="left",dx=-60,dy=-15,fontSize=15,fontWeight="bold",lineBreak = "\n",).encode(text=alt.condition(nearest, alt.Text("ppm:Q", format=".2f"), alt.value(" "),),).transform_filter(cont_select)
+	tooltip_text = base.mark_text(align="left",dx=-60,dy=-15,fontSize=15,fontWeight="bold",lineBreak = "\n",color='white').encode(text=alt.condition(nearest, alt.Text("ppm:Q", format=".2f"), alt.value(" "),),).transform_filter(cont_select)
 	rules = (alt.Chart(data).mark_rule(color="white", strokeWidth=1).encode(x="MES:T",).transform_filter(nearest))
 	return selectors, rules, points, tooltip_text
 
