@@ -150,7 +150,7 @@ st.dataframe(cont_distrito)
 st.subheader("Gráfica interactiva", selec_ditrit)
 st.line_chart(cont_distrito)
 
-df_sel=data_by_year[data_by_year['ESTACION'].isin(selec_ditrit)]
+df_sel=data_by_year[data_by_year['ESTACION'].isin(str(selec_ditrit))]
 
 st.header('Gráfico de líneas')
 datos=df_sel.groupby(['MES']).agg({"PM 10": 'mean', "PM 2.5": 'mean', "SO2": 'mean', "NO2": 'mean', "O3": 'mean', "CO": 'mean'})
