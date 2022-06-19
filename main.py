@@ -36,6 +36,7 @@ def download_data():
 c=download_data()
 st.write('Dimensiones: ' + str(c.shape[0]) + ' filas y ' + str(c.shape[1]) + ' columnas')
 st.dataframe(c)
+st.subheader("Características del Dataset")
 st.write(c.describe())
 
 def load_data(year):
