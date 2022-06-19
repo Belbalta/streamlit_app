@@ -204,5 +204,7 @@ start_time = st.slider(
 st.write("Start time:", start_time)
 
 if st.sidebar.button("¿Quiénes somos?"):
+	images = ['03b4fc19-0cf9-4357-8e04-f1e8814ffb96.JPG', '27a9a0fb-c8db-43fa-8b69-cd64f98a01df.JPG', '96b31497-069f-4fc1-8796-100ad197e809.JPG', 'IMG_4932.jpg']
+	st.image(images, use_column_width=True, caption=["some generic text"] * len(images))
 	
 
