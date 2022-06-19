@@ -18,9 +18,6 @@ st.markdown("""
 from PIL import Image
 image = Image.open('contaminacion.jpeg')
 st.image(image, caption='La contaminación por el parque automotor antiguo es un problema en Lima Metropolitana', use_column_width=True)
-#from PIL import Image
-#image = Image.open('contaminacion.jpeg')
-#st.image(image, caption='La contaminación por el parque automotor antiguo es un problema en Lima Metropolitana', use_column_width=True)
 
 st.sidebar.header("Entradas del usuario")
 selected_year=st.sidebar.selectbox('Año', list(reversed(range(2010,2021))))
@@ -41,8 +38,6 @@ st.subheader("Características del Dataset")
 st.write(c.describe())
 
 def load_data(year):
-	#df=pd.read_csv('datos_horarios_contaminacion_lima.csv')
-	#df_n=df.replace(r'^\s*$', np.nan, regex=True)
 	df = download_data()
 	df=df.astype({'ANO':'str'})
 	df['PM 10'] = pd.to_numeric(df['PM 10'])
@@ -122,17 +117,13 @@ selec_ditrit = st.selectbox('Evaluación de contaminates por distrito', distrits
 st.subheader("Distrito seleccionado:")
 st.subheader(str(selec_ditrit))
 
-#def serie_temp (selec_ditrit,df_n):
-
 grouped_g2 = df.groupby(df.ESTACION)
 distrito = grouped_g2.get_group(selec_ditrit)
 fecha = list(distrito.iloc[0,range(2,5)])
 fecha_ini = str(fecha[0])+'/'+str(int(fecha[1]))+'/'+str(int(fecha[2]))
 
-#fecha_ini = datetime.date(fecha)
 rango = int(list(distrito.shape)[0])
 index = pd.date_range(start=fecha_ini, periods=rango, freq='60T')
-#print(index)
 
 #df_tempo = pd.DataFrame(index ,columns= ['TIEMPO'])
 cont_distrito = distrito.iloc[:,6:].set_index(index)
@@ -163,7 +154,7 @@ st.dataframe(data)
 
 contaminantes=['PM 10', 'PM 2.5', 'SO2', 'NO2', 'O3', 'CO']
 def getBaseChart():
-		#base=alt.Chart(data).mark_line().encode(x='MES',y='ppm',color='contaminante').properties(width=500, height=400)
+	#base=alt.Chart(data).mark_line().encode(x='MES',y='ppm',color='contaminante').properties(width=500, height=400)
 	base = (alt.Chart(data).encode(x=alt.X("MES:T",axis=alt.Axis(title="Mes")),y=alt.Y("ppm:Q", axis=alt.Axis(title="Concentración (ppm)")),).properties(width=500, height=400))
 	return base
 
@@ -217,8 +208,8 @@ if st.sidebar.button("¿Quiénes somos?"):
 	grayscale = image3.convert('LA')
 	col6.image(grayscale, use_column_width=True)
 	image4 = Image.open('IMG_4932.jpg')
-	col5.header("Belén Balta")
-	col5.image(image4, use_column_width=True)
+	col7.header("Belén Balta")
+	col7.image(image4, use_column_width=True)
 	grayscale = image4.convert('LA')
-	col6.image(grayscale, use_column_width=True)
+	col8.image(grayscale, use_column_width=True)
 
