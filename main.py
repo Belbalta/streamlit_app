@@ -192,5 +192,11 @@ selectors, rules, points, tooltip_text  = createTooltip(base, cont_select)
 
 make_selector | alt.layer(highlight_cont, selectors, points,rules, tooltip_text)
 
+from datetime import time
+rango = st.slider("Selecciona un rango de tiempo:", value=(datetime(2010, 1, 1, 0,  0), datetime(2020, 12, 31, 23, 59), format="MM/DD/YY - hh:mm")
+st.write("Elija un rango:", rango)
+
+
+
 
 
