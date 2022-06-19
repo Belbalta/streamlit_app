@@ -1,3 +1,4 @@
+$ pip install streamlit --upgrade
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -191,20 +192,16 @@ base, make_selector, highlight_cont, cont_select  = createChart()
 selectors, rules, points, tooltip_text  = createTooltip(base, cont_select)
 
 make_selector | alt.layer(highlight_cont, selectors, points,rules, tooltip_text)
-'''
-from datetime import time
-rango = st.slider("Selecciona un rango de tiempo:", value=(datetime(2010, 1, 1, 0,  0), datetime(2020, 12, 31, 23, 59), format="MM/DD/YY - hh:mm")
-st.write("Elija un rango:", rango)
-'''
-from datetime import datetime
-start_time = st.slider(
-     "When do you start?",
-     value=datetime(2020, 1, 1, 9, 30),
-     format="MM/DD/YY - hh:mm")
-st.write("Start time:", start_time)
+
 
 if st.sidebar.button("¿Quiénes somos?"):
 	images = ['03b4fc19-0cf9-4357-8e04-f1e8814ffb96.JPG', '27a9a0fb-c8db-43fa-8b69-cd64f98a01df.JPG', '96b31497-069f-4fc1-8796-100ad197e809.JPG', 'IMG_4932.jpg']
 	st.image(images, use_column_width=True, caption=["some generic text"] * len(images))
-	
+	col1, col2 = st.columns(2)
+	original = Image.open('03b4fc19-0cf9-4357-8e04-f1e8814ffb96.JPG')
+	col1.header("Original")
+	col1.image(original, use_column_width=True)
+	grayscale = original.convert('LA')
+	col2.header("Grayscale")
+	col2.image(grayscale, use_column_width=True)
 
