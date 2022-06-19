@@ -195,8 +195,8 @@ make_selector | alt.layer(highlight_cont, selectors, points,rules, tooltip_text)
 
 
 if st.sidebar.button("¿Quiénes somos?"):
-	images = ['03b4fc19-0cf9-4357-8e04-f1e8814ffb96.JPG', '27a9a0fb-c8db-43fa-8b69-cd64f98a01df.JPG', '96b31497-069f-4fc1-8796-100ad197e809.JPG', 'IMG_4932.jpg']
-	st.image(images, use_column_width=True, caption=["some generic text"] * len(images))
+	st.header("¿Quiénes somos?")
+	st.write("Somos un grupo de estudiantes de V ciclo de Ingeniería de la Universidad Peruano Cayetano Heredia (UPCH). Nos apasiona el procesamiento y visualización de datos medioambientales que puedan ayudar al público general a comprender mejor el problema de la contaminación del aire.")
 	
 	col1, col2, col3, col4 = st.columns(4)
 	image1 = Image.open('03b4fc19-0cf9-4357-8e04-f1e8814ffb96.JPG')
