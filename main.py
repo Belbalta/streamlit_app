@@ -154,8 +154,8 @@ st.dataframe(data)
 
 contaminantes=['PM 10', 'PM 2.5', 'SO2', 'NO2', 'O3', 'CO']
 def getBaseChart():
-	base=alt.Chart(data).encode(x='MES',y='ppm').properties(width=500, height=400)
-	#base = (alt.Chart(data).encode(x=alt.X("MES:T",axis=alt.Axis(title="Mes")),y=alt.Y("ppm:Q", axis=alt.Axis(title="Concentración (ppm)")),).properties(width=500, height=400))
+	#base=alt.Chart(data).encode(x='MES',y='ppm').properties(width=500, height=400)
+	base = (alt.Chart(data).encode(x=alt.X("MES",axis=alt.Axis(title="Mes")),y=alt.Y("ppm:Q", axis=alt.Axis(title="Concentración (ppm)"))).properties(width=500, height=400))
 	return base
 
 def getSelection():
