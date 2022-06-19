@@ -216,7 +216,7 @@ if st.sidebar.button("¿Quiénes somos?"):
 	col9 = st.columns(1)
 	image5 = Image.open('f8788697-6bbf-4282-b5a8-edb50b7b9cb3.JPG')
 	col9.header("Josmer Cajahuaringa")
-	col9.image(imag5, use_column_width=True)
+	col9.image(image5, use_column_width=True)
 	grayscale = image5.convert('LA')
 	col9.image(grayscale, use_column_width=True)
 	
