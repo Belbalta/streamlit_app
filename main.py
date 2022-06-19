@@ -154,8 +154,8 @@ st.dataframe(data)
 
 contaminantes=['PM 10', 'PM 2.5', 'SO2', 'NO2', 'O3', 'CO']
 def getBaseChart():
-	#base=alt.Chart(data).encode(x='MES',y='ppm').properties(width=500, height=400)
-	base = (alt.Chart(data).encode(x=alt.X("MES",axis=alt.Axis(title="Mes")),y=alt.Y("ppm:Q", axis=alt.Axis(title="Concentración (ppm)")),).properties(width=500, height=400))
+	#base=alt.Chart(data).mark_line().encode(x='MES',y='ppm',color='contaminante').properties(width=500, height=400)
+	base = (alt.Chart(data).encode(x=alt.X("MES:T",axis=alt.Axis(title="Mes")),y=alt.Y("ppm:Q", axis=alt.Axis(title="Concentración (ppm)")),).properties(width=500, height=400))
 	return base
 
 def getSelection():
@@ -212,5 +212,12 @@ if st.sidebar.button("¿Quiénes somos?"):
 	col7.image(image4, use_column_width=True)
 	grayscale = image4.convert('LA')
 	col8.image(grayscale, use_column_width=True)
+	
+	col9, col10 = st.columns(2)
+	image5 = Image.open('f8788697-6bbf-4282-b5a8-edb50b7b9cb3.JPG')
+	col9.header("Josmer Cajahuaringa")
+	col9.image(image5, use_column_width=True)
+	grayscale = image5.convert('LA')
+	col10.image(grayscale, use_column_width=True)
 	
 
