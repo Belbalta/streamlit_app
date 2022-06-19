@@ -10,7 +10,7 @@ st.title('Contaminantes del aire en Lima Metropolitana')
 
 st.markdown("""
 	Esta app exploratoria permite visualizar los datos de contaminantes del aire en Lima Metropolitana
-	* **Librerías Python:** base64, pandas, streamlit
+	* **Librerías Python:** altair, pandas, streamlit, base64
 	* **Base de datos:** [Servicio Nacional de Meteorología e Hidrología del Perú - SENAMHI] (https://www.datosabiertos.gob.pe/dataset/datos-horarios-de-contanimantes-del-aire-en-lima-metropolitana-servicio-nacional-de).
 	""")
 
@@ -34,7 +34,7 @@ def download_data():
    df=pd.read_csv('datos_horarios_contaminacion_lima.csv')
    return df
 st.dataframe(download_data())
-
+download_data().describe()
 
 def load_data(year):
 	#df=pd.read_csv('datos_horarios_contaminacion_lima.csv')
