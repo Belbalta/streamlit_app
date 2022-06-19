@@ -203,5 +203,6 @@ start_time = st.slider(
      format="MM/DD/YY - hh:mm")
 st.write("Start time:", start_time)
 
-
+if st.sidebar.button("¿Quiénes somos?"):
+	
 
