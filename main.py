@@ -34,7 +34,7 @@ def download_data():
    df=pd.read_csv('datos_horarios_contaminacion_lima.csv')
    return df
 st.dataframe(download_data())
-download_data().describe()
+st.write(download_data().describe())
 
 def load_data(year):
 	#df=pd.read_csv('datos_horarios_contaminacion_lima.csv')
