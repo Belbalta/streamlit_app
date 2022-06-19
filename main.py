@@ -33,8 +33,10 @@ def download_data():
    urllib.request.urlretrieve(url,filename)
    df=pd.read_csv('datos_horarios_contaminacion_lima.csv')
    return df
-st.dataframe(download_data())
-st.write(download_data().describe())
+c=download_data()
+st.write('Dimensiones: ' + str(c.shape[0]) + ' filas y ' + str(c.shape[1]) + ' columnas')
+st.dataframe(c)
+st.write(c.describe())
 
 def load_data(year):
 	#df=pd.read_csv('datos_horarios_contaminacion_lima.csv')
@@ -81,13 +83,6 @@ def filedownload(df):
 	return href
 
 st.markdown(filedownload(df_selected), unsafe_allow_html=True)
-
-
-if st.sidebar.button("CSV completo"):
-	st.subheader('Dataset completo')
-	df=pd.read_csv('datos_horarios_contaminacion_lima.csv')
-	st.write('Dimensiones: ' + str(df.shape[0]) + ' filas y ' + str(df.shape[1]) + ' columnas')
-	st.dataframe(df)
 	
 st.header('Evaluación de distritos por contaminante')	
 
@@ -195,5 +190,6 @@ base, make_selector, highlight_cont, cont_select  = createChart()
 selectors, rules, points, tooltip_text  = createTooltip(base, cont_select)
 
 make_selector | alt.layer(highlight_cont, selectors, points,rules, tooltip_text)
+
 
 
